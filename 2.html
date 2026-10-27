@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="计算机专业本科生的个人简历，展示专业技能、课程实践与学习计划。">
+    <title>个人简历</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="profile">
+        <img class="portrait" src="头像.jpg" alt="个人头像：黑白动漫人物" width="160" height="160">
+        <div class="profile-copy">
+            <p class="eyebrow">计算机专业 · 本科在读</p>
+            <h1>王梓健</h1>
+            <p class="student-info">学号：2024150200 · Web编程第6周</p>
+            <p class="intro">我是计算机专业大三学生，系统学习过计算机专业核心课程，具备编程基础。关注自然语言处理与机器学习，也在学习如何用清晰的网页呈现项目和个人经历。</p>
+            <ul class="tag-list" aria-label="关注方向">
+                <li>自然语言处理</li><li>机器学习</li><li>Web 开发</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 主区域在宽屏为内容区与侧栏，窄屏改为纵向排列。 -->
+    <main class="resume-layout">
+        <div class="resume-content">
+            <!-- Week 6: Todo 列表基础版。放在内容区顶部突出本周练习；脚本见 body 末尾。 -->
+            <section class="todo-section">
+                <div class="section-heading"><h2>待办事项 Todo</h2><p>用 JavaScript 实现“添加”与“显示”</p></div>
+                <div class="todo-bar">
+                    <input type="text" class="todo-input" placeholder="输入待办事项…" aria-label="待办事项内容">
+                    <button type="button" class="todo-add">添加</button>
+                </div>
+                <p class="todo-hint" role="status" aria-live="polite"></p>
+                <ul class="todo-list" aria-label="待办列表" aria-live="polite"></ul>
+            </section>
+
+            <section>
+                <div class="section-heading"><h2>专业技能</h2><p>从基础编程到应用实践</p></div>
+                <ul class="skill-list">
+                    <li><span class="item-number">01 / 编程基础</span><h3>Python 开发</h3><p>熟悉 Python 语法与常用数据结构，能够编写数据处理脚本，完成课程任务的代码实现。</p><ul class="tag-list"><li>Python</li><li>数据处理</li></ul></li>
+                    <li><span class="item-number">02 / 智能应用</span><h3>自然语言处理</h3><p>学习文本分析与模型训练基础，结合课程项目理解从文本输入到实验结果的处理流程。</p><ul class="tag-list"><li>文本分析</li><li>模型训练</li></ul></li>
+                    <li><span class="item-number">03 / 前端基础</span><h3>HTML 与 CSS</h3><p>使用语义化 HTML 组织内容，用 CSS 控制排版、颜色与响应式布局，关注不同屏幕上的可读性。</p><ul class="tag-list"><li>语义化</li><li>响应式</li></ul></li>
+                    <li><span class="item-number">04 / 算法学习</span><h3>机器学习基础</h3><p>了解常用算法，能够围绕数据预处理、模型训练与结果评估组织基础实验。</p><ul class="tag-list"><li>预处理</li><li>模型评估</li></ul></li>
+                    <li><span class="item-number">05 / 开发工具</span><h3>Git 版本管理</h3><p>使用 Git 管理代码变更，通过 GitHub 保存课程项目，方便回顾实现过程与后续修改。</p><ul class="tag-list"><li>Git</li><li>GitHub</li></ul></li>
+                    <li><span class="item-number">06 / 当前练习</span><h3>JavaScript 交互</h3><p>在本周练习中实现 Todo 列表的添加与显示，检查输入边界、事件绑定与可访问性，用修改前后的实际结果验证代码。</p><ul class="tag-list"><li>JavaScript</li><li>DOM</li><li>交互验证</li></ul></li>
+                </ul>
+            </section>
+
+            <section class="projects-section">
+                <div class="section-heading"><h2>课程与项目</h2><p>把所学落到具体作品中</p></div>
+                <div class="project-list">
+                    <article class="project-card">
+                        <p class="item-number">课程项目 / NLP</p><h3>自然语言处理期末作业</h3>
+                        <p>围绕自然语言处理课程开展项目实践，相关实现保存在 GitHub 仓库中，可通过下方链接查看具体代码与说明。</p>
+                        <ul class="tag-list"><li>Python</li><li>自然语言处理</li></ul>
+                        <a class="project-action" href="https://github.com/kartwatt-cpu/WZJ_NLP_FINALHOMEWORK" target="_blank" rel="noopener noreferrer">查看项目仓库 <span>↗（新窗口）</span></a>
+                    </article>
+                    <article class="project-card">
+                        <p class="item-number">课程实践 / WEB</p><h3>响应式个人简历</h3>
+                        <p>从单列简介扩展为包含技能、项目和学习计划的页面。宽屏呈现双栏内容，手机端依次阅读，卡片随空间自动换行。</p>
+                        <ul class="tag-list"><li>HTML</li><li>CSS</li><li>Flexbox</li></ul>
+                        <a class="project-action" href="style.css">查看本页样式源码 <span>→</span></a>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <aside class="resume-sidebar" aria-label="学习背景与计划">
+            <section class="sidebar-section">
+                <p class="eyebrow">ABOUT MY STUDY</p><h2>学习背景</h2>
+                <dl class="facts"><div><dt>专业方向</dt><dd>计算机专业</dd></div><div><dt>当前阶段</dt><dd>本科三年级</dd></div><div><dt>兴趣领域</dt><dd>自然语言处理、机器学习</dd></div><div><dt>当前课程</dt><dd>Web 编程</dd></div></dl>
+            </section>
+            <section class="sidebar-section">
+                <h2>近期学习计划</h2>
+                <ol class="plan-list">
+                    <li><h3>巩固前端基础</h3><p>继续练习语义化结构、盒模型与弹性布局。</p></li>
+                    <li><h3>完善项目说明</h3><p>整理运行步骤和实验过程，让代码更便于理解。</p></li>
+                    <li><h3>形成验证习惯</h3><p>修改后检查窄屏、长文本和键盘访问，记录真实结果。</p></li>
+                </ol>
+            </section>
+            <section class="sidebar-section">
+                <h2>个人主页</h2><p>课程代码与学习实践持续整理在 GitHub。</p>
+                <a href="https://github.com/kartwatt-cpu" target="_blank" rel="noopener noreferrer">kartwatt-cpu ↗（新窗口）</a>
+            </section>
+        </aside>
+    </main>
+    <footer><p>© 2026 王梓健 · 个人简历</p><p>持续学习，认真记录每一次实践。</p></footer>
+
+    <!-- Week 6: Todo 列表脚本。放在 body 末尾，确保 DOM 已加载。 -->
+    <script>
+    (function () {
+        var input = document.querySelector('.todo-input');
+        var button = document.querySelector('.todo-add');
+        var list = document.querySelector('.todo-list');
+        var hint = document.querySelector('.todo-hint');
+
+        button.addEventListener('click', function () {
+            var text = input.value.trim();
+            if (text === '') {
+                hint.textContent = '内容为空，请输入后再添加。';
+                input.focus();
+                return;
+            }
+            hint.textContent = '';
+            var li = document.createElement('li');
+            li.textContent = text;
+            list.appendChild(li);
+            input.value = '';
+            input.focus();
+        });
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* Week 5: Grid defines the page and card tracks; Flex handles local one-dimensional groups. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    max-width: 1200px; margin: 0 auto; padding: 24px 16px;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    color: #334155; background: #fff; line-height: 1.7;
+    display: grid; grid-template-areas: "header" "main" "footer";
+    grid-template-columns: minmax(0, 1fr); gap: 28px;
+}
+h1, h2, h3 { color: #172b4d; }
+h1 { font-size: clamp(28px, 5vw, 36px); line-height: 1.3; }
+h2 { font-size: 21px; border-left: 4px solid #3b82f6; padding-left: 10px; }
+h3 { font-size: 17px; }
+a { color: #1d4ed8; text-decoration: underline; overflow-wrap: anywhere; }
+a:hover { color: #1e3a8a; }
+a:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 4px; border-radius: 2px; }
+section, article, aside, li { min-width: 0; }
+p, dd { overflow-wrap: anywhere; }
+.profile { grid-area: header; display: flex; align-items: center; gap: 32px; padding: 28px; background: #f1f5fb; border-radius: 16px; border-top: 4px solid #3b82f6; }
+.portrait { width: 160px; height: 160px; object-fit: cover; flex-shrink: 0; border-radius: 12px; }
+.profile-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.eyebrow, .item-number { color: #475569; font-size: 12px; letter-spacing: 1px; }
+.student-info, .section-heading p { color: #596579; font-size: 14px; }
+.resume-layout { grid-area: main; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
+.resume-content { min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+.resume-sidebar { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 20px; }
+.section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
+.skill-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; list-style: none; }
+.skill-list > li { padding: 20px; background: #f7f9fc; border: 1px solid #e2e8f0; border-radius: 10px; display: flex; flex-direction: column; gap: 10px; }
+.skill-list > li > p { font-size: 14px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.tag-list > li { padding: 3px 9px; border-radius: 5px; background: #e8eef8; color: #254574; font-size: 12px; }
+.skill-list > li > .tag-list { margin-top: auto; }
+.project-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.project-card { padding: 20px; border: 1px solid #cbd5e1; border-radius: 10px; display: flex; flex-direction: column; gap: 12px; }
+.project-card > p:not(.item-number) { flex: 1; font-size: 14px; }
+.project-action { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding-top: 12px; border-top: 1px solid #e2e8f0; font-size: 14px; }
+.project-action span { font-size: 12px; }
+.sidebar-section { display: flex; flex-direction: column; gap: 16px; padding: 20px; background: #f7f9fc; border-radius: 10px; font-size: 14px; }
+.facts { display: flex; flex-direction: column; gap: 14px; }
+.facts > div { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.facts dt { flex: 0 0 56px; color: #596579; }
+.facts dd { flex: 1; min-width: 0; }
+.plan-list { display: flex; flex-direction: column; gap: 18px; padding-left: 20px; }
+.plan-list h3 { font-size: 14px; }
+footer { grid-area: footer; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; border-top: 1px solid #e2e8f0; padding-top: 20px; color: #596579; font-size: 13px; }
+/* Week 6: Todo 列表。输入行用 Flex 一维排列，列表为等宽的纵向列。 */
+.todo-section { display: flex; flex-direction: column; gap: 14px; }
+.todo-bar { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; }
+.todo-input { flex: 1 1 220px; min-width: 0; padding: 10px 12px; font: inherit; color: #334155; background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; }
+.todo-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); }
+.todo-add { flex: 0 0 auto; padding: 10px 20px; border: none; border-radius: 8px; background: #3b82f6; color: #ffffff; font: inherit; cursor: pointer; }
+.todo-add:hover { background: #1d4ed8; }
+.todo-add:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+.todo-hint { min-height: 1.5em; font-size: 13px; color: #b45309; }
+.todo-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+.todo-list li { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 10px 14px; background: #f7f9fc; border: 1px solid #e2e8f0; border-radius: 8px; overflow-wrap: anywhere; cursor: pointer; }
+.todo-list li > span { flex: 1 1 auto; min-width: 0; }
+.todo-list li > .todo-edit,
+.todo-list li > .todo-del { flex: 0 0 auto; height: 28px; padding: 0 10px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; color: #64748b; font: inherit; line-height: 1; cursor: pointer; }
+.todo-list li > .todo-edit:hover { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+.todo-list li > .todo-del:hover { border-color: #dc2626; background: #fef2f2; color: #dc2626; }
+.todo-list li > .todo-edit:focus-visible,
+.todo-list li > .todo-del:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+.todo-list li.done { background: #eef2f7; color: #94a3b8; text-decoration: line-through; }
+.todo-list li.done span { text-decoration: line-through; }
+.todo-list li:hover { border-color: #93b4f8; }
+/* Week 7: 筛选按钮、计数行与清除按钮。视图状态只影响渲染，不写入 localStorage。 */
+.todo-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.todo-filter { padding: 6px 14px; border: 1px solid #cbd5e1; border-radius: 999px; background: #fff; color: #475569; font: inherit; font-size: 14px; cursor: pointer; }
+.todo-filter:hover { border-color: #3b82f6; color: #1d4ed8; }
+.todo-filter.is-active { border-color: #3b82f6; background: #3b82f6; color: #ffffff; }
+.todo-filter:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+.todo-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+.todo-count { font-size: 13px; color: #596579; }
+.todo-clear { flex: 0 0 auto; padding: 6px 14px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; color: #475569; font: inherit; font-size: 14px; cursor: pointer; }
+.todo-clear:hover { border-color: #1d4ed8; color: #1d4ed8; }
+.todo-clear:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+@media (min-width: 900px) {
+    body { padding: 40px 24px; gap: 32px; }
+    .resume-layout { grid-template-columns: minmax(0, 1fr) 256px; }
+    .resume-sidebar { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .profile { flex-direction: column; align-items: flex-start; padding: 20px; gap: 20px; }
+    .portrait { width: 112px; height: 112px; }
+}

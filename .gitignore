@@ -1,0 +1,10 @@
+# 工具、依赖与临时文件不入库
+_tools/
+node_modules/
+.dsh-office-*/
+~$*.docx
+.DS_Store
+Thumbs.db
+
+# 上一周的提交物不混进本周仓库
+[王梓健][2024150200]AI协作日志W8.docx
