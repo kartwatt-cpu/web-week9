@@ -55,3 +55,10 @@ test('维度4：不存在的 ID 不改动已有任务', () => {
   expect(todos.length).toBe(1);
   expect(todos[0].completed).toBe(false);
 });
+
+// ⑦ 维度3（类型不匹配）：数字不是合法文本
+test('维度3：数字不是合法文本', () => {
+  const todos: Todo[] = [];
+  addTodo(todos, 123);
+  expect(todos.length).toBe(0);
+});

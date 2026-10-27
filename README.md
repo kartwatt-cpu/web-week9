@@ -11,7 +11,7 @@
 - **TypeScript 重构**：拆成 `todo.ts`（数据层）与 `app.ts`（视图层）；`tsconfig.json` 开启 `strict: true` + `noEmit: true`，全程没有 `any`、非空断言 `!` 与 `as` 硬转；
 - **两个脏数据入口**：`parseTodoId` 用 `trim` + `/^\d+$/` + `Number.isSafeInteger` 把 `dataset.id` 转成 `number`；`parseTodos` 对 `localStorage` 的 JSON 逐条做 `isTodo` 校验，坏数据直接丢弃；
 - **手写 5 条单测**：`addTodo` 正常 / 纯空格 / 空字符串，`toggleTodo` 正常切换 / 不存在的 ID，每条用例内部新建数据、互不共享；
-- **AI 审查与修补**：用结构化 Prompt 让 AI 生成测试，指出 `toBeDefined()` 弱断言、`toBe(1)` 期望值写反、顶层数据污染三处问题，并补上 null / undefined、超长文本、重复、`<script>` 注入、无效 ID 不改数据五类边界；
+- **AI 审查与修补**：用结构化 Prompt 让 AI 生成测试，指出 `toBeDefined()` 弱断言、`toBe(1)` 期望值写反、顶层数据污染三处问题，并补上 null / undefined、超长文本、类型不匹配、重复、`<script>` 注入、无效 ID 不改数据六类边界；
 - **保持页面行为**：事件委托仍只挂在 `ul.todo-list` 上，删除 / 编辑 / 切换三个分支互斥；`app.js` 由 `tsc` 检查、`esbuild` 打包成 IIFE，页面可直接双击打开。
 
 ## 文件结构
@@ -21,7 +21,7 @@
 | `todo.ts` | 数据模型、纯数据操作、`parseTodoId` / `parseTodos` 运行时校验 |
 | `app.ts` | DOM 渲染与事件委托，调用 `todo.ts` |
 | `todo.test.ts` | 任务 2 的 5 条手写用例 |
-| `todo.review.test.ts` | 任务 3 的修补用例（null、超长、重复、安全、无效 ID） |
+| `todo.review.test.ts` | 任务 3 的修补用例（null、undefined、类型、超长、重复、安全、无效 ID） |
 | `app.js` | `npm run build` 生成的浏览器脚本 |
 | `index.html` / `style.css` | 个人简历页面与 Todo 组件样式 |
 | `docs/images/test-run-handwritten.png` | `npm run test` 5 条用例全绿截图 |
@@ -38,7 +38,7 @@ npm run build      # 先类型检查，再把 app.ts 打包成 app.js
 ## 验证方式
 
 1. `npm run typecheck` 零报错；
-2. `npm run test` 全绿：手写 5 条 + 修补 7 条，共 12 条；
+2. `npm run test` 全绿：手写 5 条 + 修补 8 条，共 13 条；
 3. 浏览器打开 `index.html`：添加 → 切换 → 编辑 → 删除 → 三个筛选 → 刷新，数据仍在；
 4. 点列表空白处、点带脏 `data-id` 的项，控制台不报错；
 5. 控制台 `localStorage.getItem('todos')` 里的 `id` 为 `number`。
