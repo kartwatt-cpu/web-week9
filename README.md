@@ -24,7 +24,7 @@
 | `todo.review.test.ts` | 任务 3 的修补用例（null、undefined、类型、超长、重复、安全、无效 ID） |
 | `app.js` | `npm run build` 生成的浏览器脚本 |
 | `index.html` / `style.css` | 个人简历页面与 Todo 组件样式 |
-| `docs/images/test-run-handwritten.png` | `npm run test` 5 条用例全绿截图 |
+| `docs/images/test-run-final.png` | `npm run test` 全绿截图（2 个文件、13 条用例） |
 
 ## 常用命令
 
