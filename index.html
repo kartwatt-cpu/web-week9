@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="计算机专业本科生的个人简历，展示专业技能、课程实践与学习计划，并包含数据驱动的待办事项应用。">
-    <title>个人简历 · Todo V2.0（事件委托版）</title>
+    <meta name="description" content="计算机专业本科生的个人简历，展示专业技能、课程实践与学习计划，并包含用 TypeScript 重构、带 Vitest 单元测试的待办事项应用。">
+    <title>个人简历 · Todo V3.0（TypeScript + 单元测试）</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
         <div class="profile-copy">
             <p class="eyebrow">计算机专业 · 本科在读</p>
             <h1>王梓健</h1>
-            <p class="student-info">学号：2024150200 · Web编程第8周</p>
+            <p class="student-info">学号：2024150200 · Web编程第9周</p>
             <p class="intro">我是计算机专业大三学生，系统学习过计算机专业核心课程，具备编程基础。关注自然语言处理与机器学习，也在学习如何用清晰的网页呈现项目和个人经历。</p>
             <ul class="tag-list" aria-label="关注方向">
                 <li>自然语言处理</li><li>机器学习</li><li>Web 开发</li>
@@ -24,11 +24,11 @@
     <!-- 主区域在宽屏为内容区与侧栏，窄屏改为纵向排列。 -->
     <main class="resume-layout">
         <div class="resume-content">
-            <!-- Week 8: 在第 7 周 V2.0 基础上改用事件委托。DOM 仍由 render() 投影；脚本见 body 末尾。 -->
+            <!-- Week 9: 数据层与视图层拆到 todo.ts / app.ts，app.js 由 tsc + esbuild 生成。 -->
             <section class="todo-section">
                 <div class="section-heading">
                     <h2>待办事项 Todo</h2>
-                    <p>V2.0 + 事件委托 · 改数据 → 保存 → 重渲染</p>
+                    <p>V3.0 · TypeScript 类型约束 + Vitest 单元测试</p>
                 </div>
 
                 <div class="todo-bar">
@@ -38,16 +38,14 @@
 
                 <p class="todo-hint" role="status" aria-live="polite"></p>
 
-                <!-- 环节④：筛选按钮（提交 2 加入） -->
                 <div class="todo-filters" role="group" aria-label="筛选待办事项">
                     <button type="button" class="todo-filter is-active" data-filter="all" aria-pressed="true">全部</button>
                     <button type="button" class="todo-filter" data-filter="active" aria-pressed="false">未完成</button>
-                    <button type="button" class="todo-filter" data-filter="done" aria-pressed="false">已完成</button>
+                    <button type="button" class="todo-filter" data-filter="completed" aria-pressed="false">已完成</button>
                 </div>
 
                 <ul class="todo-list" aria-label="待办列表" aria-live="polite"></ul>
 
-                <!-- 环节④：计数与清除已完成（提交 3 加入持久化后一并补上） -->
                 <div class="todo-footer">
                     <p class="todo-count">共 0 项 · 未完成 0 项</p>
                     <button type="button" class="todo-clear">清除已完成</button>
@@ -62,7 +60,7 @@
                     <li><span class="item-number">03 / 前端基础</span><h3>HTML 与 CSS</h3><p>使用语义化 HTML 组织内容，用 CSS 控制排版、颜色与响应式布局，关注不同屏幕上的可读性。</p><ul class="tag-list"><li>语义化</li><li>响应式</li></ul></li>
                     <li><span class="item-number">04 / 算法学习</span><h3>机器学习基础</h3><p>了解常用算法，能够围绕数据预处理、模型训练与结果评估组织基础实验。</p><ul class="tag-list"><li>预处理</li><li>模型评估</li></ul></li>
                     <li><span class="item-number">05 / 开发工具</span><h3>Git 版本管理</h3><p>使用 Git 管理代码变更，通过分支开发、多次提交与合并回主分支保存课程项目，改动有据可查。</p><ul class="tag-list"><li>Git</li><li>GitHub</li></ul></li>
-                    <li><span class="item-number">06 / 当前练习</span><h3>JavaScript 数据流</h3><p>本周把状态收敛到一个 todos 数组：三个操作都生成新数组、经 save() 持久化、由 render() 重画整个列表，并用筛选与刷新验证效果。</p><ul class="tag-list"><li>JavaScript</li><li>不可变更新</li><li>localStorage</li></ul></li>
+                    <li><span class="item-number">06 / 当前练习</span><h3>TypeScript 与单元测试</h3><p>把 Todo 的数据结构写成 interface，给脏数据加运行时校验，再用 Vitest 的 5 条手写用例守住正常与边界行为。</p><ul class="tag-list"><li>TypeScript</li><li>Vitest</li><li>边界测试</li></ul></li>
                 </ul>
             </section>
 
@@ -76,9 +74,9 @@
                         <a class="project-action" href="https://github.com/kartwatt-cpu/WZJ_NLP_FINALHOMEWORK" target="_blank" rel="noopener noreferrer">查看项目仓库 <span>↗（新窗口）</span></a>
                     </article>
                     <article class="project-card">
-                        <p class="item-number">课程实践 / WEB</p><h3>个人简历 + Todo V2.0</h3>
-                        <p>从第 5 周的响应式简历，到第 6 周的手动 DOM 操作，再到本周的数据驱动重构：状态收敛到 todos 数组，配合 localStorage 持久化与筛选视图。</p>
-                        <ul class="tag-list"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+                        <p class="item-number">课程实践 / WEB</p><h3>个人简历 + Todo V3.0</h3>
+                        <p>第 5 周响应式简历、第 6 周手动 DOM、第 7 周数据驱动、第 8 周事件委托；本周把数据结构与操作收紧到 TypeScript，并用 Vitest 单测验证正常与边界行为。</p>
+                        <ul class="tag-list"><li>TypeScript</li><li>Vitest</li><li>事件委托</li></ul>
                         <a class="project-action" href="style.css">查看本页样式源码 <span>→</span></a>
                     </article>
                 </div>
@@ -94,8 +92,8 @@
                 <h2>近期学习计划</h2>
                 <ol class="plan-list">
                     <li><h3>巩固前端基础</h3><p>继续练习语义化结构、盒模型与弹性布局。</p></li>
-                    <li><h3>把状态管清楚</h3><p>坚持单一数据源与不可变更新，改完就走“保存 + 重渲染”。</p></li>
-                    <li><h3>形成验证习惯</h3><p>修改后检查窄屏、刷新持久化与控制台调用结果，记录真实结果。</p></li>
+                    <li><h3>把类型写清楚</h3><p>用 interface 描述数据结构，用收窄和运行时校验守住 null 与脏数据。</p></li>
+                    <li><h3>形成验证习惯</h3><p>改完先跑 tsc 与 npm run test，确认类型检查和单测都通过，再记录真实结果。</p></li>
                 </ol>
             </section>
             <section class="sidebar-section">
@@ -106,237 +104,7 @@
     </main>
     <footer><p>© 2026 王梓健 · 个人简历</p><p>持续学习，认真记录每一次实践。</p></footer>
 
-    <!-- Week 8: 事件委托版 Todo 脚本。放在 body 末尾，确保 DOM 已加载。 -->
-    <script>
-    (function () {
-        'use strict';
-
-        var KEY = 'todos';                       // ① 存储的键名
-        var input = document.querySelector('.todo-input');
-        var addBtn = document.querySelector('.todo-add');
-        var list = document.querySelector('.todo-list');
-        var hint = document.querySelector('.todo-hint');
-        var countEl = document.querySelector('.todo-count');
-        var clearBtn = document.querySelector('.todo-clear');
-        var filterBtns = document.querySelectorAll('.todo-filter');
-
-        var todos = load();                      // ③ 单一数据源
-        var filter = 'all';                      // ④ 视图状态
-
-        // ⑤ 存
-        function save() {
-            try {
-                localStorage.setItem(KEY, JSON.stringify(todos));
-            } catch (err) {
-                hint.textContent = '保存失败：' + err.message;
-            }
-        }
-
-        // ⑤ 取
-        function load() {
-            var raw;
-            try {
-                raw = localStorage.getItem(KEY);
-            } catch (err) {
-                return [];
-            }
-            if (raw === null) {
-                return [];                       // 没存过 → 空数组
-            }
-            try {
-                var data = JSON.parse(raw);
-                return Array.isArray(data) ? data : [];
-            } catch (err) {
-                return [];                       // 内容被改坏 → 退回空数组，不让整页脚本挂掉
-            }
-        }
-
-        // ⑦ 改数据 → 保存 → 重渲染
-        function addTodo(text) {
-            todos = todos.concat([{ id: nextId(), text: text, completed: false }]);
-            save();
-            render();
-        }
-
-        function removeTodo(id) {
-            todos = todos.filter(function (t) { return t.id !== id; });
-            save();
-            render();
-        }
-
-        function toggleTodo(id) {
-            todos = todos.map(function (t) {
-                return t.id === id ? Object.assign({}, t, { completed: !t.completed }) : t;
-            });
-            save();
-            render();
-        }
-
-        // 任务 3（禁用 AI 手写）：编辑分支 —— 改文本，仍走「改数据 → save() → render()」
-        function editTodo(id) {
-            var current = todos.filter(function (t) { return t.id === id; })[0];
-            if (!current) { return; }                            // 找不到就不动数据
-            var text = prompt('修改任务', current.text);
-            if (text === null) { return; }                       // 点了取消
-            text = text.trim();
-            if (text === '') { return; }                         // trim 后为空不改
-            todos = todos.map(function (t) {
-                return t.id === id ? Object.assign({}, t, { text: text }) : t;
-            });
-            save();
-            render();
-        }
-
-        function setFilter(f) {
-            filter = f;
-            render();                            // 视图状态 → 只重渲染，不需要 save()
-        }
-
-        function render() {
-            list.innerHTML = '';                 // 清空 → 重画
-            var shown = todos.filter(function (t) {
-                if (filter === 'all') { return true; }
-                if (filter === 'done') { return t.completed; }
-                return !t.completed;
-            });
-
-            shown.forEach(function (t) {
-                var li = document.createElement('li');
-                li.dataset.id = t.id;                        // ① id 写进 DOM
-                if (t.completed) { li.classList.add('done'); }
-
-                var span = document.createElement('span');
-                span.textContent = t.text;                   // 任务文字
-
-                var editBtn = document.createElement('button');
-                editBtn.type = 'button';
-                editBtn.className = 'todo-edit';
-                editBtn.textContent = '编辑';
-                editBtn.dataset.action = 'edit';             // ② 标记编辑操作
-                editBtn.setAttribute('aria-label', '编辑：' + t.text);
-
-                var delBtn = document.createElement('button');
-                delBtn.type = 'button';
-                delBtn.className = 'todo-del';
-                delBtn.textContent = '删除';
-                delBtn.dataset.action = 'delete';            // ② 标记删除操作
-                delBtn.setAttribute('aria-label', '删除：' + t.text);
-
-                li.appendChild(span);
-                li.appendChild(editBtn);
-                li.appendChild(delBtn);
-                list.appendChild(li);
-            });
-
-            updateFilterButtons();
-            countEl.textContent = '共 ' + todos.length + ' 项 · 未完成 ' +
-                todos.reduce(function (n, t) { return n + (t.completed ? 0 : 1); }, 0) + ' 项';
-        }
-
-        // 事件委托：整条列表只在 ul 上挂一个监听器，删除 / 编辑 / 切换统一在这里分流
-        list.addEventListener('click', function (e) {
-            if (!(e.target instanceof Element)) return;          // ① 防：不是元素
-            var item = e.target.closest('li');
-            if (!item || !list.contains(item)) return;           // ②③ 防：空值 / 越界
-            var id = item.dataset.id;
-            if (!id) return;                                     // ④ 防：没有 data-id
-            var delBtn = e.target.closest('[data-action="delete"]');
-            var editBtn = e.target.closest('[data-action="edit"]');
-            if (delBtn && item.contains(delBtn)) {
-                removeTodo(id);                                  // 删除分支
-            } else if (editBtn && item.contains(editBtn)) {
-                editTodo(id);                                    // 编辑分支
-            } else {
-                toggleTodo(id);                                  // 其余情况才切换
-            }
-        });
-
-        // 唯一 id：同一毫秒内连续添加也不会撞号
-        var seq = 0;
-
-        function nextId() {
-            return Date.now().toString(36) + '-' + (seq++).toString(36);
-        }
-
-        function updateFilterButtons() {
-            filterBtns.forEach(function (btn) {
-                var on = btn.dataset.filter === filter;
-                btn.classList.toggle('is-active', on);
-                btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-            });
-        }
-
-        addBtn.addEventListener('click', function () {
-            var text = input.value.trim();
-            if (text === '') {
-                hint.textContent = '内容为空，请输入后再添加。';
-                input.focus();
-                return;
-            }
-            hint.textContent = '';
-            addTodo(text);
-            input.value = '';
-            input.focus();
-        });
-
-        input.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') { addBtn.click(); }
-        });
-
-        filterBtns.forEach(function (btn) {
-            btn.addEventListener('click', function () { setFilter(btn.dataset.filter); });
-        });
-
-        clearBtn.addEventListener('click', function () { clearCompleted(); });
-
-        // 记录 3：脱离 AI 小改，手写完成 —— 删除所有已完成任务
-        function clearCompleted() {
-            todos = todos.filter(function (t) { return !t.completed; });
-            save();
-            render();
-        }
-
-        render();                                // 首次渲染，把 localStorage 里的数据画出来
-    })();
-    </script>
-
-        <!-- 截图辅助：仅在 URL 带 ?demo=1 时生效，给截图准备示例数据；正常打开页面不受影响。 -->
-    <script>
-    (function () {
-        'use strict';
-        if (location.search.indexOf('demo=') === -1) { return; }
-        if (localStorage.getItem('todos') === null) {
-            localStorage.setItem('todos', JSON.stringify([
-                { id: 'demo-1', text: '完成 V2.0 数据驱动重构', completed: true },
-                { id: 'demo-2', text: '补完筛选与 localStorage 持久化', completed: false },
-                { id: 'demo-3', text: '刷新页面确认数据还在', completed: false }
-            ]));
-            location.reload();
-            return;
-        }
-        if (location.search.indexOf('measure=') !== -1) {
-            var box = function (sel) {
-                var el = document.querySelector(sel);
-                if (!el) { return null; }
-                var r = el.getBoundingClientRect();
-                return [Math.round(r.top), Math.round(r.bottom)];
-            };
-            document.title = 'GEO:' + JSON.stringify({
-                header: box('.profile'),
-                todo: box('.todo-section'),
-                footer: box('footer'),
-                bodyHeight: document.body.scrollHeight,
-                viewport: [window.innerWidth, window.innerHeight],
-                items: document.querySelectorAll('.todo-list li').length
-            });
-        }
-        // &filter=active|done：截图前切到某个筛选，展示筛选结果
-        var fm = /[?&]filter=(active|done|all)/.exec(location.search);
-        if (fm) {
-            var btn = document.querySelector('.todo-filter[data-filter="' + fm[1] + '"]');
-            if (btn) { btn.click(); }
-        }
-    })();
-    </script>
+    <!-- Week 9: app.ts 由 tsc 类型检查、esbuild 打包成 app.js；页面仍可直接用 file:// 打开。 -->
+    <script src="app.js" defer></script>
 </body>
 </html>
